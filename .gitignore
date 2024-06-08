@@ -4,7 +4,6 @@ TODO
 node_modules/
 src/
 CHANGELOG.md
-package-lock.json
 .gitattributes
 docs/
 webdocs/
