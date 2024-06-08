@@ -16,6 +16,7 @@ export declare const reAddrAnchored: string;
 export declare const rePkhAnchored: string;
 export declare const reWpkhAnchored: string;
 export declare const reShWpkhAnchored: string;
+export declare const rePtrAnchored: string;
 export declare const reShMiniscriptAnchored: string;
 export declare const reShWshMiniscriptAnchored: string;
 export declare const reWshMiniscriptAnchored: string;

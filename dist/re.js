@@ -2,7 +2,7 @@
 // Copyright (c) 2023 Jose-Luis Landabaso - https://bitcoinerlab.com
 // Distributed under the MIT software license
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reWshMiniscriptAnchored = exports.reShWshMiniscriptAnchored = exports.reShMiniscriptAnchored = exports.reShWpkhAnchored = exports.reWpkhAnchored = exports.rePkhAnchored = exports.reAddrAnchored = exports.rePkAnchored = exports.anchorStartAndEnd = exports.reKeyExp = exports.reXprvKey = exports.reXpubKey = exports.rePath = exports.reXprv = exports.reXpub = exports.reWIF = exports.rePubKey = exports.reChecksum = exports.reOrigin = exports.reMasterFingerprint = exports.reOriginPath = void 0;
+exports.reWshMiniscriptAnchored = exports.reShWshMiniscriptAnchored = exports.reShMiniscriptAnchored = exports.rePtrAnchored = exports.reShWpkhAnchored = exports.reWpkhAnchored = exports.rePkhAnchored = exports.reAddrAnchored = exports.rePkAnchored = exports.anchorStartAndEnd = exports.reKeyExp = exports.reXprvKey = exports.reXpubKey = exports.rePath = exports.reXprv = exports.reXpub = exports.reWIF = exports.rePubKey = exports.reChecksum = exports.reOrigin = exports.reMasterFingerprint = exports.reOriginPath = void 0;
 const checksum_1 = require("./checksum");
 //Regular expressions cheat sheet:
 //https://www.keycdn.com/support/regex-cheat-sheet
@@ -47,6 +47,7 @@ const reAddr = String.raw `addr\((.*?)\)`; //Matches anything. We assert later i
 const rePkh = String.raw `pkh\(${exports.reKeyExp}\)`;
 const reWpkh = String.raw `wpkh\(${exports.reKeyExp}\)`;
 const reShWpkh = String.raw `sh\(wpkh\(${exports.reKeyExp}\)\)`;
+const rePtr = String.raw `tr\(${exports.reKeyExp}\)`;
 const reMiniscript = String.raw `(.*?)`; //Matches anything. We assert later in the code that miniscripts are valid and sane.
 //RegExp makers:
 const makeReSh = (re) => String.raw `sh\(${re}\)`;
@@ -60,6 +61,7 @@ exports.reAddrAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(reAddr))
 exports.rePkhAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(rePkh));
 exports.reWpkhAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(reWpkh));
 exports.reShWpkhAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(reShWpkh));
+exports.rePtrAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(rePtr));
 exports.reShMiniscriptAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(makeReSh(reMiniscript)));
 exports.reShWshMiniscriptAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(makeReShWsh(reMiniscript)));
 exports.reWshMiniscriptAnchored = (0, exports.anchorStartAndEnd)(composeChecksum(makeReWsh(reMiniscript)));
