@@ -2,7 +2,10 @@ TODO
 .DS_Store
 *.swp
 node_modules/
-dist/
+src/
+CHANGELOG.md
+package-lock.json
+.gitattributes
 docs/
 webdocs/
 test/**/*.js
